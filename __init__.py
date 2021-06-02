@@ -45,20 +45,10 @@ import string
 import pickle
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 from datetime import datetime
-# import boardingPassGen
 
-# from azure.eventhub import EventHubProducerClient, EventData
-# Endpoint=sb://hub10001.servicebus.windows.net/;SharedAccessKeyName=publish;SharedAccessKey=lkdv/O87CQi5SvZVfhvb1AUXs94byHbVWyrKlVvhqqM=;EntityPath=hub1
-# Endpoint=sb://airportoperationssensor.servicebus.windows.net/;SharedAccessKeyName=publish;SharedAccessKey=ThtuhomNvzUFqBHzahyZuWmn1Fs8xKcIIDV2pVtfDVA=;EntityPath=boardingpass
-# Endpoint=sb://demoeventhubforairportevents.servicebus.windows.net/;SharedAccessKeyName=key1;SharedAccessKey=6iDP9b4B9bW93swcFFOxmfxVa+gmQ4xWzQTosqoDPCc=;EntityPath=hub1
-# CONNECTION_STR = 'Endpoint=sb://hub10001.servicebus.windows.net/;SharedAccessKeyName=publish;SharedAccessKey=lkdv/O87CQi5SvZVfhvb1AUXs94byHbVWyrKlVvhqqM='
-# EVENTHUB_NAME = 'hub1'
-
-
-blob_connection_string='DefaultEndpointsProtocol=https;AccountName=stadlsdevjupitereus01;AccountKey=exJbSnZIcb/q7ncBLJi3oSHR7EhUHmC9lyLf4P6dCoxEoL/SNxiv7SUgGfKIm/GYHXZi0Krz3HzEvL8rNHYMZg==;EndpointSuffix=core.windows.net'
+blob_connection_string='<enter-connection-string>'
 blob_service_client = BlobServiceClient.from_connection_string(blob_connection_string)
 container_name = 'checkin-dryrun'
-
 
 def get_boarding_passcode():
     return ''.join(random.choice(string.ascii_uppercase)for i in range(12))
@@ -70,11 +60,6 @@ def get_gate_number():
     return key
 
 start_time = time.time()
-
-# producer = EventHubProducerClient.from_connection_string(
-#     conn_str=CONNECTION_STR,
-#     eventhub_name=EVENTHUB_NAME
-# )
 
 terminals=['1','1A','1B','2','3','4','5','5T']
 # sleep_intervals=[1,2,3,4,5,6,7,8,9,10]
